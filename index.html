@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>CYBER GUARD AI — Website Security Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">⬡</span><span>CYBER GUARD <small>AI SECURITY ASSISTANT</small></span></a>
+    <span class="pill"><i></i> SAFE MODE</span>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">WEBSITE & WEB APP SECURITY</div>
+      <h1>তোমার ওয়েবসাইটের<br><span>নিরাপত্তা বুঝে নাও।</span></h1>
+      <p>বাংলায় নিরাপত্তা-সহকারী। নিজের বা স্পষ্ট অনুমতিপ্রাপ্ত ওয়েবসাইট পরীক্ষা করো, কোডের সম্ভাব্য ঝুঁকি খুঁজে শেখো, এবং করণীয় জানো।</p>
+    </section>
+
+    <section class="notice">
+      <strong>শুরু করার সংস্করণ</strong>
+      <p>এটি প্রাথমিক MVP: URL-এর HTTPS/ফরম্যাট যাচাই ও কোডের কিছু সাধারণ ঝুঁকির প্যাটার্ন পরীক্ষা করে। এটি এখনো সার্ভার-সাইড স্ক্যান বা পূর্ণ AI বিশ্লেষণ করে না।</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-title"><span class="number">01</span><div><h2>Website Quick Check</h2><p>নিজের বা অনুমতিপ্রাপ্ত সাইটের ঠিকানা দাও</p></div></div>
+      <form id="url-form">
+        <label for="site-url">ওয়েবসাইটের URL</label>
+        <div class="input-row"><input id="site-url" type="text" placeholder="https://example.com" autocomplete="url"><button type="submit">পরীক্ষা করো</button></div>
+      </form>
+      <div id="url-results" class="results" aria-live="polite"><p class="muted">পরীক্ষা শুরু করতে একটি URL লিখো।</p></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-title"><span class="number">02</span><div><h2>Code Risk Checker</h2><p>HTML বা JavaScript কোডে সাধারণ ঝুঁকির চিহ্ন খোঁজো</p></div></div>
+      <label for="code-input">কোড পেস্ট করো</label>
+      <textarea id="code-input" rows="7" placeholder="এখানে নিজের কোড পেস্ট করো…"></textarea>
+      <div class="input-row actions"><span class="muted small">কোড শুধু এই ব্রাউজারেই বিশ্লেষণ হয়।</span><button id="analyze-code" type="button">কোড বিশ্লেষণ</button></div>
+      <div id="code-results" class="results" aria-live="polite"><p class="muted">কোড পেস্ট করে বিশ্লেষণ বোতামে চাপ দাও।</p></div>
+    </section>
+
+    <section class="panel chat-panel">
+      <div class="section-title"><span class="number">03</span><div><h2>Security Learning Assistant</h2><p>নিরাপদ সাইবার সিকিউরিটি শেখার প্রশ্ন</p></div></div>
+      <div class="chat-bubble">আমি এখন প্রাথমিক সহকারী। নিচের বিষয়গুলো দিয়ে শুরু করতে পারো:</div>
+      <div class="prompt-list">
+        <button class="prompt" data-question="HTTPS কী এবং কেন দরকার?">HTTPS কী?</button>
+        <button class="prompt" data-question="Content Security Policy কীভাবে সাহায্য করে?">CSP কী?</button>
+        <button class="prompt" data-question="ওয়েবসাইট নিরাপদ করার ৫টি প্রথম পদক্ষেপ বলো।">নিরাপত্তার ৫টি পদক্ষেপ</button>
+      </div>
+      <form id="learn-form">
+        <label for="question">তোমার প্রশ্ন</label>
+        <div class="input-row"><input id="question" placeholder="যেমন: XSS কী?"><button type="submit">উত্তর দেখাও</button></div>
+      </form>
+      <div id="learn-answer" class="results" aria-live="polite"></div>
+      <p class="muted small">লাইভ AI API এখনো যুক্ত হয়নি; এখানে প্রাথমিক শিক্ষামূলক উত্তর দেখানো হয়।</p>
+    </section>
+
+    <footer><span>CYBER GUARD AI</span><span>শুধু অনুমতিপ্রাপ্ত নিরাপত্তা পরীক্ষা</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
