@@ -66,33 +66,53 @@ $("analyze-code").addEventListener("click", () => {
   addResult(out, "সীমাবদ্ধতা", "এটি শিক্ষামূলক pattern checker, পূর্ণাঙ্গ static analyzer নয়। ফলাফল একজন নিরাপত্তা বিশেষজ্ঞের review দিয়ে যাচাই করো।", "warn");
 });
 
-const answers = [
-  {keys:["https","tls","certificate"], answer:"HTTPS হলো HTTP-এর এনক্রিপ্টেড সংস্করণ, যা ব্রাউজার ও সার্ভারের মধ্যে ডেটা সুরক্ষিত রাখতে সাহায্য করে। বৈধ TLS certificate, HTTPS redirect এবং নিরাপদ TLS configuration ব্যবহার করো।"},
-  {keys:["csp","content security policy"], answer:"Content Security Policy (CSP) একটি HTTP response header, যা ব্রাউজারে কোন উৎস থেকে script, style, image ইত্যাদি লোড হতে পারবে তা সীমিত করে। আগে Report-Only মোডে পরীক্ষা করে পরে উপযুক্ত policy প্রয়োগ করো।"},
-  {keys:["xss","cross-site scripting"], answer:"XSS হলো এমন দুর্বলতা যেখানে ওয়েব পেজে অনিরাপদভাবে ডেটা বসানোর কারণে অন্য ব্যবহারকারীর ব্রাউজারে অনিচ্ছাকৃত script চলতে পারে। textContent, context-aware output encoding, নিরাপদ templating এবং CSP সাহায্য করে।"},
-  {keys:["পদক্ষেপ","নিরাপদ","৫টি","নিরাপত্তা"], answer:"শুরুতে: (১) HTTPS ও বৈধ certificate, (২) সফটওয়্যার/লাইব্রেরি আপডেট, (৩) MFA ও শক্তিশালী authentication, (৪) ইনপুট validation এবং output encoding, (৫) ব্যাকআপ, লগ মনিটরিং ও security headers।"}
-];
-function answerQuestion(q) {
-  const normalized = q.toLowerCase();
-  const match = answers.find(item => item.keys.some(key => normalized.includes(key)));
-  return match ? match.answer : "আমি এখন অফলাইন শিক্ষামূলক নিয়ম দিয়ে উত্তর দিচ্ছি। HTTPS, CSP, XSS বা ওয়েবসাইট নিরাপদ করার পদক্ষেপ সম্পর্কে প্রশ্ন করো। লাইভ AI যুক্ত করতে পরের ধাপে একটি backend ও নিরাপদ API configuration লাগবে।";
-}
-function showAnswer(q) {
+async function showAnswer(q) {
   const out = $("learn-answer");
   out.replaceChildren();
+
   const div = document.createElement("div");
   div.className = "answer";
-  div.textContent = answerQuestion(q);
+  div.textContent = "AI উত্তর তৈরি করছে...";
   out.appendChild(div);
+
+  try {
+    const response = await fetch(
+      "https://cyber-guard-ai-api.nihathasan053.workers.dev/api/chat",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: q
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok || !data.ok || !data.answer) {
+      throw new Error(data.error || "AI উত্তর দিতে পারেনি");
+    }
+
+    div.textContent = data.answer;
+  } catch (error) {
+    div.textContent =
+      "AI-এর সঙ্গে সংযোগ করা যাচ্ছে না। ইন্টারনেট ও API সেটিংস পরীক্ষা করো। বিস্তারিত: " +
+      error.message;
+  }
 }
+
 $("learn-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const q = $("question").value.trim();
   if (q) showAnswer(q);
 });
-document.querySelectorAll(".prompt").forEach(button => {
+
+document.querySelectorAll(".prompt").forEach((button) => {
   button.addEventListener("click", () => {
-    $("question").value = button.dataset.question;
-    showAnswer(button.dataset.question);
+    const q = button.dataset.question;
+    $("question").value = q;
+    if (q) showAnswer(q);
   });
 });
