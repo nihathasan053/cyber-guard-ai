@@ -92,7 +92,9 @@ async function showAnswer(q) {
     const data = await response.json();
 
     if (!response.ok || !data.ok || !data.answer) {
-      throw new Error(data.error || "AI উত্তর দিতে পারেনি");
+  throw new Error(
+    data.details || data.error || "AI উত্তর দিতে পারেনি"
+  );
     }
 
     div.textContent = data.answer;
