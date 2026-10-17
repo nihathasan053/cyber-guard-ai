@@ -1,63 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#07111f">
-  <title>CYBER GUARD AI — Website Security Assistant</title>
+  <meta name="theme-color" content="#060713">
+  <meta name="description" content="CYBER GUARD AI — AI-powered cybersecurity assistant.">
+  <title>CYBER GUARD AI | Cybersecurity Ally</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#"><span class="brand-icon">⬡</span><span>CYBER GUARD <small>AI SECURITY ASSISTANT</small></span></a>
-    <span class="pill"><i></i> SAFE MODE</span>
+    <a class="brand" href="#" aria-label="CYBER GUARD AI home">
+      <span class="logo-shield">⬡<b>♞</b></span>
+      <span class="brand-name">CYBER GUARD <em>AI</em>
+        <small>AI-POWERED CYBERSECURITY ASSISTANT</small>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#" class="active">⌂ <span>Home</span></a>
+      <a href="#tools">⚒ <span>Tools</span></a>
+      <a href="#assistant">▤ <span>Learn</span></a>
+      <a href="#resources">◇ <span>Resources</span></a>
+      <a href="#about">ⓘ <span>About</span></a>
+    </nav>
+    <div class="online"><i></i> Online <small>AI Ready</small></div>
   </header>
-  <main class="container">
+
+  <main>
     <section class="hero">
-      <div class="eyebrow">WEBSITE & WEB APP SECURITY</div>
-      <h1>তোমার ওয়েবসাইটের<br><span>নিরাপত্তা বুঝে নাও।</span></h1>
-      <p>বাংলায় নিরাপত্তা-সহকারী। নিজের বা স্পষ্ট অনুমতিপ্রাপ্ত ওয়েবসাইট পরীক্ষা করো, কোডের সম্ভাব্য ঝুঁকি খুঁজে শেখো, এবং করণীয় জানো।</p>
-    </section>
-
-    <section class="notice">
-      <strong>শুরু করার সংস্করণ</strong>
-      <p>এটি প্রাথমিক MVP: URL-এর HTTPS/ফরম্যাট যাচাই ও কোডের কিছু সাধারণ ঝুঁকির প্যাটার্ন পরীক্ষা করে। এটি এখনো সার্ভার-সাইড স্ক্যান বা পূর্ণ AI বিশ্লেষণ করে না।</p>
-    </section>
-
-    <section class="panel">
-      <div class="section-title"><span class="number">01</span><div><h2>Website Quick Check</h2><p>নিজের বা অনুমতিপ্রাপ্ত সাইটের ঠিকানা দাও</p></div></div>
-      <form id="url-form">
-        <label for="site-url">ওয়েবসাইটের URL</label>
-        <div class="input-row"><input id="site-url" type="text" placeholder="https://example.com" autocomplete="url"><button type="submit">পরীক্ষা করো</button></div>
-      </form>
-      <div id="url-results" class="results" aria-live="polite"><p class="muted">পরীক্ষা শুরু করতে একটি URL লিখো।</p></div>
-    </section>
-
-    <section class="panel">
-      <div class="section-title"><span class="number">02</span><div><h2>Code Risk Checker</h2><p>HTML বা JavaScript কোডে সাধারণ ঝুঁকির চিহ্ন খোঁজো</p></div></div>
-      <label for="code-input">কোড পেস্ট করো</label>
-      <textarea id="code-input" rows="7" placeholder="এখানে নিজের কোড পেস্ট করো…"></textarea>
-      <div class="input-row actions"><span class="muted small">কোড শুধু এই ব্রাউজারেই বিশ্লেষণ হয়।</span><button id="analyze-code" type="button">কোড বিশ্লেষণ</button></div>
-      <div id="code-results" class="results" aria-live="polite"><p class="muted">কোড পেস্ট করে বিশ্লেষণ বোতামে চাপ দাও।</p></div>
-    </section>
-
-    <section class="panel chat-panel">
-      <div class="section-title"><span class="number">03</span><div><h2>Security Learning Assistant</h2><p>নিরাপদ সাইবার সিকিউরিটি শেখার প্রশ্ন</p></div></div>
-      <div class="chat-bubble">আমি এখন প্রাথমিক সহকারী। নিচের বিষয়গুলো দিয়ে শুরু করতে পারো:</div>
-      <div class="prompt-list">
-        <button class="prompt" data-question="HTTPS কী এবং কেন দরকার?">HTTPS কী?</button>
-        <button class="prompt" data-question="Content Security Policy কীভাবে সাহায্য করে?">CSP কী?</button>
-        <button class="prompt" data-question="ওয়েবসাইট নিরাপদ করার ৫টি প্রথম পদক্ষেপ বলো।">নিরাপত্তার ৫টি পদক্ষেপ</button>
+      <div class="hero-copy">
+        <div class="eyebrow"><span>ϟ</span> SECURE TODAY · SAFER TOMORROW</div>
+        <h1>CYBER GUARD <span class="purple-text">AI</span><br>
+          Your Ultimate<br><span class="gradient-text">Cybersecurity Ally</span>
+        </h1>
+        <p>ওয়েবসাইট সুরক্ষা, কোডের ঝুঁকি বিশ্লেষণ এবং সাইবার নিরাপত্তা শেখার জন্য আপনার নির্ভরযোগ্য AI সহায়ক প্ল্যাটফর্ম।</p>
+        <a class="primary-link" href="#assistant">✦ <span>AI Assistant-এর সঙ্গে কথা বলো</span> <b>→</b></a>
+        <div class="hero-points">
+          <span>✓ Defensive Security</span>
+          <span>✓ AI Guidance</span>
+          <span>✓ Learn & Protect</span>
+        </div>
       </div>
-      <form id="learn-form">
-        <label for="question">তোমার প্রশ্ন</label>
-        <div class="input-row"><input id="question" placeholder="যেমন: XSS কী?"><button type="submit">উত্তর দেখাও</button></div>
-      </form>
-      <div id="learn-answer" class="results" aria-live="polite"></div>
-      <p class="muted small">CYBER GUARD AI — Cloudflare Workers AI সংযোগ।</p>
+      <div class="hero-art" aria-label="Cybersecurity shield illustration">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="world">✧　·　✦　·　✧<br>　SECURE DIGITAL WORLD<br>✦　·　✧　·　✦</div>
+        <div class="big-shield"><div>♞</div><span>CYBER<br>DEFENSE</span></div>
+        <div class="float-chip chip-one">⌁<small>SECURE WEB</small></div>
+        <div class="float-chip chip-two">⌘<small>SAFE CODE</small></div>
+        <div class="float-chip chip-three">◈<small>AI SHIELD</small></div>
+        <div class="hero-caption"><i></i> CYBER DEFENSE SYSTEM <b>ACTIVE</b></div>
+      </div>
+    </section>
 
-    <footer><span>CYBER GUARD AI</span><span>শুধু অনুমতিপ্রাপ্ত নিরাপত্তা পরীক্ষা</span></footer>
+    <section class="tool-section" id="tools">
+      <div class="section-heading">
+        <div class="eyebrow">✦ SECURITY TOOLS</div>
+        <h2>Powerful Security <span class="gradient-text">Toolkit</span></h2>
+        <p>তিনটি শক্তিশালী টুল দিয়ে আপনার ডিজিটাল নিরাপত্তা আরও নিশ্চিত করুন।</p>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card url-card">
+          <div class="card-top"><span class="tool-icon">◎</span><span class="tag">01 / WEB</span></div>
+          <h3>URL Security Scanner</h3>
+          <p>URL-এর HTTPS, hostname এবং সন্দেহজনক প্যাটার্ন সম্পর্কে প্রাথমিক পরীক্ষা করো।</p>
+          <form id="url-form">
+            <label for="site-url">Website URL</label>
+            <div class="input-wrap"><span>↗</span><input id="site-url" type="text" placeholder="https://example.com" autocomplete="url"></div>
+            <button class="action-button" type="submit">⌕ &nbsp; Scan URL <b>→</b></button>
+          </form>
+          <div class="check-list"><span>✓ HTTPS Check</span><span>✓ Domain Pattern Check</span><span>✓ URL Structure</span></div>
+          <div id="url-results" class="results" aria-live="polite">পরীক্ষার ফল এখানে দেখা যাবে।</div>
+        </article>
+
+        <article class="tool-card code-card">
+          <div class="card-top"><span class="tool-icon">{ }</span><span class="tag">02 / CODE</span></div>
+          <h3>Code Risk Checker</h3>
+          <p>আপনার কোডে পরিচিত ঝুঁকিপূর্ণ প্যাটার্ন আছে কি না, তা দ্রুত বিশ্লেষণ করো।</p>
+          <label for="code-input">Paste your code</label>
+          <textarea id="code-input" rows="4" placeholder="এখানে HTML, JavaScript বা অন্য কোড পেস্ট করো..."></textarea>
+          <button class="action-button" id="analyze-code" type="button">ϟ &nbsp; Analyze Code <b>→</b></button>
+          <div class="check-list"><span>✓ Risk Pattern Check</span><span>✓ Suspicious Code Check</span><span>✓ Basic Guidance</span></div>
+          <div id="code-results" class="results" aria-live="polite">কোড বিশ্লেষণের ফল এখানে দেখা যাবে।</div>
+        </article>
+
+        <article class="tool-card ai-card" id="assistant">
+          <div class="card-top"><span class="tool-icon">✳</span><span class="tag">03 / AI</span></div>
+          <h3>Security AI Assistant</h3>
+          <p>সাইবার নিরাপত্তা সম্পর্কে প্রশ্ন করো, শেখো এবং নিরাপদ থাকার উপায় জানো।</p>
+          <div class="prompt-list">
+            <button class="prompt" data-question="HTTPS কী এবং এটি কেন গুরুত্বপূর্ণ?"><span>⬡</span> HTTPS কী? <b>→</b></button>
+            <button class="prompt" data-question="Content Security Policy (CSP) কীভাবে সাহায্য করে?"><span>⌘</span> CSP কী? <b>→</b></button>
+            <button class="prompt" data-question="ওয়েবসাইট নিরাপদ করার ৫টি প্রথম পদক্ষেপ বলো।"><span>ϟ</span> নিরাপত্তার ৫টি পদক্ষেপ <b>→</b></button>
+          </div>
+          <form id="learn-form">
+            <label for="question">তোমার প্রশ্ন লিখো</label>
+            <textarea id="question" rows="3" placeholder="যেমন: SQL Injection কীভাবে প্রতিরোধ করব?"></textarea>
+            <button class="action-button ai-button" type="submit">➤ &nbsp; Ask Security AI <b>↗</b></button>
+          </form>
+          <div id="learn-answer" class="results answer-area" aria-live="polite"></div>
+          <p class="disclaimer">AI-এর উত্তর যাচাই করে ব্যবহার করো। এটি নিরাপত্তা বিশেষজ্ঞের বিকল্প নয়।</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-strip" id="resources">
+      <div><span>⬡</span><p><b>Security Awareness</b><small>Learn safer practices</small></p></div>
+      <div><span>✳</span><p><b>AI-Powered Insights</b><small>Understand security risks</small></p></div>
+      <div><span>ϟ</span><p><b>Defensive Security</b><small>Build safer websites</small></p></div>
+      <div><span>↗</span><p><b>Keep Improving</b><small>Learn · Protect · Grow</small></p></div>
+    </section>
   </main>
+
+  <footer id="about">
+    <a class="brand footer-brand" href="#"><span class="logo-shield">⬡<b>♞</b></span><span class="brand-name">CYBER GUARD <em>AI</em><small>DEFENSIVE SECURITY · AI ASSISTANT</small></span></a>
+    <p>নিরাপত্তা হোক আমাদের প্রথম অগ্রাধিকার<br><span>SECURE · LEARN · PROTECT</span></p>
+    <span class="footer-status"><i></i> Powered by Cloudflare Workers AI</span>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
