@@ -431,3 +431,36 @@ footer > p span { color: var(--muted); font-size: 10px; letter-spacing: 2px; }
     animation: none;
   }
 }
+/* CYBER GUARD AI - Loading Animation */
+.answer.loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 55px;
+  color: #8fffea;
+}
+
+.answer.loading::before {
+  content: "";
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  border: 3px solid #164e4a;
+  border-top-color: #00efaa;
+  border-right-color: #00dcff;
+  border-radius: 50%;
+  animation: cyberSpin 0.8s linear infinite;
+  box-shadow: 0 0 12px #00efaa35;
+}
+
+@keyframes cyberSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .answer.loading::before {
+    animation-duration: 2s;
+  }
+}
