@@ -72,7 +72,7 @@ async function showAnswer(q) {
 
   const div = document.createElement("div");
   div.className = "answer";
-  div.textContent = "AI উত্তর তৈরি করছে...";
+  div.textContent = "🔄 AI উত্তর তৈরি করছে...";
   out.appendChild(div);
 
   try {
@@ -83,28 +83,42 @@ async function showAnswer(q) {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          message: q
-        })
+        body: JSON.stringify({ message: q })
       }
     );
 
     const data = await response.json();
 
     if (!response.ok || !data.ok || !data.answer) {
-  throw new Error(
-    data.details || data.error || "AI উত্তর দিতে পারেনি"
-  );
+      throw new Error(
+        data.details || data.error || "AI উত্তর দিতে পারেনি"
+      );
     }
 
     div.textContent = data.answer;
+
   } catch (error) {
     div.textContent =
-      "AI-এর সঙ্গে সংযোগ করা যাচ্ছে না। ইন্টারনেট ও API সেটিংস পরীক্ষা করো। বিস্তারিত: " +
-      error.message;
+      "❌ AI সংযোগে সমস্যা: " + error.message;
   }
 }
 
+$("learn-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const q = $("question").value.trim();
+
+  if (q) showAnswer(q);
+});
+
+document.querySelectorAll(".prompt").forEach((button) => {
+  button.addEventListener("click", () => {
+    const q = button.dataset.question;
+    $("question").value = q;
+
+    if (q) showAnswer(q);
+  });
+});
 $("learn-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const q = $("question").value.trim();
